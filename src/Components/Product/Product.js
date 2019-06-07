@@ -11,7 +11,7 @@ class Product extends Component{
                     <h2>{product.price}</h2>
                 </div>
                 <button onClick={deleteProduct}>Delete</button>
-                <button onClick={updateProduct}>Update</button>
+                <button onClick={updateProduct}>Edit</button>
             </div>
         )
     }

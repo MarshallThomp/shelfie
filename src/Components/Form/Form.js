@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 
-class Form extends Component{
-    constructor(props){
+class Form extends Component {
+    constructor(props) {
         super(props)
 
         this.state = {
             name: '',
             price: 0,
-            img: ''
+            img: '',
+            editing: false
         }
     }
 
@@ -55,29 +56,31 @@ class Form extends Component{
         })
     }
 
-    render(){
+    render() {
         let { name, price, img } = this.state
 
-        return(
+        return (
             <div>
                 <input
                     type="text"
                     value={img}
                     onChange={e => this.handleChangeImage(e.target.value)}
                     placeholder='image'
-                /> 
+                />
                 <input
                     type="text"
                     value={name}
                     onChange={e => this.handleChangeName(e.target.value)}
-                /> 
+                />
                 <input
                     type="number"
                     value={price}
                     onChange={e => this.handleChangePrice(e.target.value)}
                 />
-                <button onClick={this.handleClick}>Cancel</button> 
-                <button onClick={this.addProduct}>Add to Inventory</button> 
+                <button onClick={this.handleClick}>Cancel</button>
+                
+                    <button onClick={this.addProduct}>Add to Inventory</button> 
+                
             </div>
         )
     }

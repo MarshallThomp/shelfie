@@ -12,7 +12,10 @@ class App extends Component {
 
     this.state = {
       inventory: [],
+      product: {}
     }
+
+    this.updateProduct = this.updateProduct.bind(this)
   }
 
   componentDidMount() {
@@ -39,12 +42,12 @@ class App extends Component {
     }).catch(err => console.log(err))
   }
 
-  updateProduct = product => {
-    axios.put(`/api/inventory/${product.product_id}`, product).then(res => {
+  updateProduct(product) {
+    axios.put(`/api/inventory/${product.id}`, product).then(res => {
       this.setState({
-        inventory: res.data
+        product: res.data
       })
-    }).catch(err => console.log(err))
+    })
   }
 
   render() {
@@ -59,6 +62,7 @@ class App extends Component {
           />
           <Form
             createProduct={this.createProduct}
+            product={this.state.product}
           />
         </div>
       </HashRouter>
