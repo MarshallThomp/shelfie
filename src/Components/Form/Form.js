@@ -11,10 +11,21 @@ class Form extends Component{
         }
     }
 
-    handleChange = e => {
-        let { value, name } = e.target
+    handleChangeImage = value => {
         this.setState({
-            [name]: value
+            img: value
+        })
+    }
+
+    handleChangeName = value => {
+        this.setState({
+            name: value
+        })
+    }
+
+    handleChangePrice = value => {
+        this.setState({
+            price: value
         })
     }
 
@@ -44,18 +55,6 @@ class Form extends Component{
         })
     }
 
-    defaultImg = () => {
-        this.setState({
-            img: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
-        })
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        
-    }
-
-
-
     render(){
         let { name, price, img } = this.state
 
@@ -64,20 +63,18 @@ class Form extends Component{
                 <input
                     type="text"
                     value={img}
-                    onChange={this.handleChange ? this.handleChange
-                        :
-                        this.defaultImg}
-                        placeholder='image'
+                    onChange={e => this.handleChangeImage(e.target.value)}
+                    placeholder='image'
                 /> 
                 <input
                     type="text"
                     value={name}
-                    onChange={this.handleChange}
+                    onChange={e => this.handleChangeName(e.target.value)}
                 /> 
                 <input
                     type="number"
                     value={price}
-                    onChange={this.handleChange}
+                    onChange={e => this.handleChangePrice(e.target.value)}
                 />
                 <button onClick={this.handleClick}>Cancel</button> 
                 <button onClick={this.addProduct}>Add to Inventory</button> 
