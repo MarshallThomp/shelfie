@@ -1,0 +1,12 @@
+.header{
+    border: 1px solid #AB2A19;
+    height: 100px;
+    margin: 0;
+    background: #AB2A19;
+    color: white;
+    display: flex;
+}
+
+.title {
+    margin-left: 50px;    
+}
